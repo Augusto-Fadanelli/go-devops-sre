@@ -2,7 +2,7 @@
 go mod init <nome_do_modulo>
 
 # Testar código
-go run <nome.go>
+go run <nome.go> <argumento>
 
 # Gerar binário (Compilar)
 go build
