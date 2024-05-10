@@ -1,0 +1,12 @@
+# Criar módulo
+go mod init <nome_do_modulo>
+
+# Testar código
+go run <nome.go>
+
+# Gerar binário (Compilar)
+go build
+
+# Executar binário
+./<nome_do_binário>
+
