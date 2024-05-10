@@ -4,18 +4,28 @@ import (
 	"fmt"
 )
 
+type Pessoa struct {
+	nome string
+	idade int
+	salario int
+}
+
 func main(){
-	name, salario := "Augusto", 1000
-	setName(name)
-	newSalary, bonus := addSalary(salario, 10)
-	fmt.Println("Novo Salário:", newSalary)
-	fmt.Println("Bônus:", bonus)
+	pessoa := &Pessoa {
+		nome: "Augusto",
+		idade: 23,
+		salario: 1000,
+	}
+
+	addSalary(pessoa, 10)
+	fmt.Println(pessoa.salario)
+
 }
 
 func setName(name string) {
 	fmt.Println("Hello", name)
 }
 
-func addSalary(valorAtual int, bonus int) (int, int){
-	return valorAtual + bonus, bonus // Dois retornos
+func addSalary(p *Pessoa, bonus int){
+	p.salario += bonus
 }
