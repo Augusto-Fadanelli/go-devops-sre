@@ -9,23 +9,21 @@ type Pessoa struct {
 	idade int
 	salario int
 }
+func (p *Pessoa) addSalary(bonus int){
+	p.salario += bonus
+}
 
 func main(){
-	pessoa := &Pessoa {
-		nome: "Augusto",
-		idade: 23,
-		salario: 1000,
-	}
+	pessoa := new(Pessoa)
+	pessoa.nome = "Augusto"
+	pessoa.idade = 23
+	pessoa.salario = 1000
 
-	addSalary(pessoa, 10)
+	pessoa.addSalary(10)
 	fmt.Println(pessoa.salario)
 
 }
 
 func setName(name string) {
 	fmt.Println("Hello", name)
-}
-
-func addSalary(p *Pessoa, bonus int){
-	p.salario += bonus
 }
