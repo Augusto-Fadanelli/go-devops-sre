@@ -2,31 +2,44 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"strconv"
 )
 
+type Empregado struct {
+	nome string
+	id int
+}
+
 func main(){
-	// Verifica quantidade de argumentos
-	if len(os.Args) != 2 {
-		fmt.Println("Erro, quantidade inválida de argumentos!")
-		os.Exit(1)
-	}
+	var inteiro = 45
+	var ponteiro *int = &inteiro
 
-	// Verifica se o argumento é um número inteiro
-	n, err := strconv.Atoi(os.Args[1])
-	if err != nil {
-		fmt.Println("Erro, não é um número válido!")
-		os.Exit(1)
-	}
-	fmt.Println("Número convertido:", n)
+	// Funcionamento básico de um ponteiro
+	fmt.Println("Valor da variável inteiro:", inteiro)
+	fmt.Println("Local da variável inteiro:", &inteiro)
+	fmt.Println("Valor da variável ponteiro:", ponteiro)
+	fmt.Println("Local da variável ponteiro:", &ponteiro)
+	fmt.Println("Valor referenciado pela variável ponteiro:", *ponteiro)
 
-	// Verifica se o arquivo existe
-	file, err := os.Open("file.txt")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer file.Close()
+	// Utilizando ponteiros em funções
+	pointerFunction(&inteiro)
+	fmt.Println("\nNovo valor da variável inteiro: ", inteiro)
+
+	// Utilizando ponteiros em structs
+	emp := Empregado{"Augusto", 123}
+	pts := &emp
+
+	fmt.Println("\nemp:", emp)
+	fmt.Println("pts:", pts)
+	
+	pts.nome = "Fadanelli"
+	fmt.Println(emp)
+
+	//teste
+	fmt.Println(pts)
+	fmt.Println(*pts)
+}
+
+func pointerFunction(a *int) {
+	*a = 400
 }
 
