@@ -1,6 +1,9 @@
 # Criar módulo
 go mod init <nome_do_modulo>
 
+# Faz identação automática
+go fmt
+
 # Testar código
 go run <nome.go> <argumento>
 
@@ -10,3 +13,5 @@ go build
 # Executar binário
 ./<nome_do_binário>
 
+# Baixar arquivo
+go get <url>
