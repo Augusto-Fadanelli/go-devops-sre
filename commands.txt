@@ -1,8 +1,19 @@
-# Criar módulo
-go mod init <nome_do_modulo>
+# Criar módulo 
+go mod init <nome_do_modulo> 
+# Exemplo: go mod init example.com/hello
 
 # Faz identação automática
 go fmt
+
+# Importar módulo
+# Crie o diretório do novo módulo, modulo.go e inicie com go mod init
+# Faça a importação no código do arquivo main.go
+# O package do arquivo main.go deve ser main: package main
+# Edite o módulo do arquivo (main) com o comando:
+go mod edit -replace <nome_do_módulo_importado>=<diretório_do_módulo_importado>
+# Exemplo: go mod edit -replace example.com/hello=../hello
+# Para sincronizar as dependências do módulo:
+go mod tidy
 
 # Testar código
 go run <nome.go> <argumento>
