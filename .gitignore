@@ -21,4 +21,5 @@
 go.work
 
 # Onde faço meus testes
+playground/
 *_playground.go
